@@ -1,15 +1,15 @@
 #! /bin/bash
 
 #DEBUG="gdb --args "
-DEBUG="cuda-gdb --args "
+#DEBUG="cuda-gdb --args "
 #DEBUG="ddd --debugger cuda-gdb --args "
 #DEBUG="cgdb -d cuda-gdb --args "
 #DEBUG="cuda-memcheck "
 
-MODEL="./data/model/yolov3-voc-relu.caffemodel"
-DEPLOY="./data/model/yolov3-voc-relu.prototxt"
+MODEL="./data/model/yolov3.caffemodel"
+DEPLOY="./data/model/yolov3.prototxt"
 # CALIBRATION="./data/model/CalibrationTable"
-SYNSET="./data/model/voc.names"
+SYNSET="./data/model/coco.names"
 IMAGELIST="./data/images/test.txt"
 
 DEV_ID=$1
