@@ -3,6 +3,7 @@
 
 #include <cuda_runtime.h>
 #include <iostream>
+#include <memory>
 #include <cassert>
 
 #include "NvInfer.h"
