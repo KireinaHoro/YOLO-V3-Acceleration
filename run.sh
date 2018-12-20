@@ -22,29 +22,30 @@ N_ITERS=1
 # Add this argument for INT8 inference.
 # Note that only pascal GPU support INT8, like NVIDIA Tesla P4, P40
 
-
 if [ ${MODE} -eq 2 ]
 then
-${DEBUG} ./bin/runYOLOv3 		-devID=${DEV_ID}			\
-					-batchSize=${BATCH_SIZE}								\
-					-nIters=${N_ITERS}											\
-					-deployFile=${DEPLOY}										\
-					-modelFile=${MODEL}											\
-					-synsetFile=${SYNSET}										\
-          -cali=${CALIBRATION}       						  \
-          -imageFile=${IMAGELIST} 								\
-          -nmsThreshold=${NMS}                    \
-          -confThreshold=${CONF}
-					#2>&1 | tee ./log/log.txt
+    ${DEBUG} ./bin/runYOLOv3        \
+        -devID=${DEV_ID}            \
+        -batchSize=${BATCH_SIZE}    \
+        -nIters=${N_ITERS}          \
+        -deployFile=${DEPLOY}       \
+        -modelFile=${MODEL}         \
+        -synsetFile=${SYNSET}       \
+        -cali=${CALIBRATION}        \
+        -imageFile=${IMAGELIST}     \
+        -nmsThreshold=${NMS}        \
+        -confThreshold=${CONF}
+        #2>&1 | tee ./log/log.txt
 else
-${DEBUG} ./bin/runYOLOv3 		-devID=${DEV_ID}			\
-					-batchSize=${BATCH_SIZE}								\
-					-nIters=${N_ITERS}											\
-					-deployFile=${DEPLOY}										\
-					-modelFile=${MODEL}											\
-					-synsetFile=${SYNSET}										\
-          -imageFile=${IMAGELIST} 								\
-          -nmsThreshold=${NMS}                    \
-          -confThreshold=${CONF}
-					#2>&1 | tee ./log/log.txt
+    ${DEBUG} ./bin/runYOLOv3        \
+        -devID=${DEV_ID}            \
+        -batchSize=${BATCH_SIZE}    \
+        -nIters=${N_ITERS}          \
+        -deployFile=${DEPLOY}       \
+        -modelFile=${MODEL}         \
+        -synsetFile=${SYNSET}       \
+        -imageFile=${IMAGELIST}     \
+        -nmsThreshold=${NMS}        \
+        -confThreshold=${CONF}
+        #2>&1 | tee ./log/log.txt
 fi
