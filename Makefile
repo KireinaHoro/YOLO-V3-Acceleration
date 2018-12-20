@@ -8,13 +8,12 @@ NVPROFILER := 0
 CUSTOM_MICRO := -DVOC -DPRINT_LOG #  -DVISULIZATION
 
 GCC := g++
-CCFLAGS := -m64 -std=c++11 -O3 $(CUSTOM_MICRO)
-NVCC := nvcc
+CCFLAGS := -std=c++11 -O3 $(CUSTOM_MICRO)
+NVCC := /usr/local/cuda/bin/nvcc
 # Choose your arch for fast compilation, 
 # sm_60 and sm_61 are for pascal gpu,
 # sm_30 and sm_35 are for Tesla K40 gpu
-NVCC_FLAGS := -gencode arch=compute_60,code=compute_60 \
-              -gencode arch=compute_61,code=compute_61 
+NVCC_FLAGS := -gencode arch=compute_72,code=compute_72
 ifeq ($(DEBUG), 1)
 	CCFLAGS += -g
 	NVCC_FLAGS += -G 
@@ -28,8 +27,8 @@ TENSORRT_VERSION := 212GA
 SRC_PATH := ./src
 INC_PATH := ./include
 
-TENSORRT_INC_PATH := ./tensorRT_$(TENSORRT_VERSION)/include
-TENSORRT_LIB_PATH := ./tensorRT_$(TENSORRT_VERSION)/lib
+TENSORRT_INC_PATH := /usr/include/aarch64-linux-gnu
+TENSORRT_LIB_PATH := /usr/lib/aarch64-linux-gnu
 
 INCLUDES := -I$(SRC_PATH) -I$(INC_PATH) -I$(TENSORRT_INC_PATH) -I/usr/local/cuda/include -I/usr/local/include
 
